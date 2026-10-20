@@ -79,12 +79,12 @@ def buscar_contenido_y_videos(query):
       if res_texto:
         texto_info = " ".join(res_texto)
 
-      res_yt = [
-          r
-          for r in ddgs.text(
-              f"site:youtube.com watch?v {query}", max_results=3
-          ]
-      ]
+res_yt = [
+    r
+    for r in ddgs.text(
+        f"site:youtube.com watch?v {query}", max_results=3
+    )  # ✅ Primero cierra el paréntesis
+]  # ✅ Luego el corchete
       for v in res_yt:
         titulo_v = v.get("title", "Video educativo")
         url_v = v.get("href", "#")
